@@ -1,0 +1,465 @@
+ * {
+    margin: 0rem;
+    padding: 0rem;
+    font-family: sans-serif;
+}
+
+body{
+   background-image: url(src/assets/img/black\ image.jpg);
+    padding: 2rem;
+}
+html{
+   
+    font-size: 22px;
+}
+
+.tiran {
+    height: 100vh;
+    width: 70%;
+    background-image: url(./src/assets/img/stadium_background.webp);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 2rem;
+     
+}
+.image img{
+    width: 5rem;
+}
+.tiran {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat((6,auto));
+    /* position: absolute;     */
+}
+ 
+.tiran .jeudf {
+    position: relative;
+    bottom: 5rem;
+    left: 3rem;
+}
+
+.tiran .jeurRb {
+    position: relative;
+    left:3rem;
+    top: 4rem;
+}
+.tiran .jeuLB {
+    position: relative;
+    top: 3rem;
+    left: 0rem;
+}
+
+.tiran .jeurLM {
+    position: relative;
+    top: 6rem;
+}
+
+.tiran .jeurRM {
+    position: relative;
+    bottom: 3rem;
+    right: 5rem;
+}
+
+.tiran .jeuCOM {
+    position: relative;
+   right: 2rem;
+}
+
+.tiran .jeurST {
+    position: relative;
+    left: 7rem;
+}
+
+.tiran .jeurGK {
+    position: relative;
+    left: 18rem;
+    top: 0rem;
+}
+.heddin {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* style de cart  */
+
+.cart {
+    width: fit-content;
+    height: fit-content;
+}
+
+.cartPerent {
+    background-image: url(./src/assets/img/badge_gold.webp);
+    background-position: center ;
+    background-size: cover;
+    width: 5rem;
+    height: 6rem;
+}
+.image {
+    width: 5rem;
+    height: 6rem;
+    transition: 0.3s ease-in-out;
+}
+.image:hover{
+    transform: scale(1.6);
+}
+.bgrimove {
+    background-image: url(./src/assets/img/badge_gold.webp);
+    background-size: cover;
+   
+}
+
+.bgrimove:hover {
+    
+}
+
+.imagedejeue {
+    width: fit-content;
+}
+.imagedejeue img {
+    width: 2rem;
+    height: 2rem;
+   position: relative;
+   left: 1.5rem;
+}
+
+.pawordeJeur {
+    display: flex;
+    justify-content: space-around;
+    width: 3.50rem;
+    margin: auto;
+    position: relative;
+    top: 1.60rem;
+}
+
+.footerDecart {
+    display: flex;
+    justify-content: center;
+
+    
+}
+.nomeDejer h3 {
+  font-size: 0.5rem;
+  width: fit-content;
+  margin: auto ;
+  position: relative;
+  bottom: 4px;
+}
+
+.pawordeJeur div div {
+    font-size: 5px;
+    position: relative;
+    bottom: 1.7rem;
+    
+}
+.footerDecart {
+    position: absolute;
+    
+}
+.footerDecart img {
+    width: 10px;
+    margin-left: 2px;
+    position: relative;
+    left: 1.6rem ;
+    bottom: 0.3rem;
+}
+.toutal {
+    width: fit-content;
+    position: relative;
+    top: 1rem;
+    left: 0.9rem;
+}
+
+.toutal h3 {
+    font-size: 0.70rem;
+}
+.toutal p {
+    font-size: 0.5rem;
+} 
+#buttonAddjouer,#buttonAddjouer2 {
+    background: green;
+    width: 30%;
+    height: 1.5rem;
+    color: white;
+}
+/* cart start END */
+
+/* style de form start */
+.formContener input {
+    display: block;
+    color: black;
+}
+.formContener label {
+    color: #ffffffa1;
+}
+.formContener {
+    background: #0000004b;
+    padding: 1rem;
+    width: fit-content;
+}
+.formContenerchoix {
+    background: #0000004b;
+
+}
+.choix-jouer {
+    width: 20rem;
+    display: flex;
+    justify-content: space-around;
+}
+.choix-jouer button{
+   width: 9rem; 
+   height: 2rem;   
+   border-radius: 5px;
+}
+.message-choix {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.prrantPRG {
+    display: flex;
+  
+}
+.formContener input {
+    width: 17rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+.formContener label {
+    margin-bottom: 0.5rem;
+}
+.formContener {
+    margin-top: 2rem;
+    height: 20rem;
+    overflow-y: scroll;
+}
+.formContener .inputPhoto {
+    
+}
+.formContener .inputPhoto input {
+    background-color: white;
+    border: none;
+    
+}
+.formContener .logoinput {
+    
+}
+.formContener .flagInput {
+}
+.formContener select {
+    width: 100%;
+    height: 1.2rem;
+}
+
+/* style form End */
+
+/* style de chongment */
+.chongment .chngejeur {
+    width: 100%;
+    height: 8rem ;
+    background: #0000005d;
+}
+.chngejeur {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+
+/* style de form updat et suprision start */
+.formalert {
+    background: #000000a3;
+    width: 12rem;
+    height: 10rem;
+    padding: 2rem;
+    border-radius: 20px;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+.modif {
+    background-color: #0080009e;
+    width: 4rem;
+    height: 1.5rem;
+    border-radius: 5px;
+    color: white;
+
+}
+.surision {
+    background-color: hsla(0, 100%, 50%, 0.621);
+    width: 5rem;
+    height: 1.5rem;
+    color: white;
+    border-radius: 5px;
+
+}
+.button {
+    width: fit-content;
+    margin: auto;
+}
+.formalert .cartPerent {
+    margin: auto;
+    margin-bottom: 2rem;
+}
+
+/* style de form updat et suprision END */
+
+#buttonmetreajour {
+  background: #0184f8;
+  height: 1.5rem;
+  width: 5rem;
+  color: white;
+  border: solid ;
+}
+
+#btn-choix-joueur {
+    border: solid 2px green;
+    font-weight: 600;
+}
+#btn-choix-golkepper {
+    border: solid 2px red;
+    font-weight: 600;
+
+}
+
+#btn-choix-joueur:hover {
+    background: green;
+    color: white;
+}
+#btn-choix-golkepper:hover {
+    background: red;
+    color: white;
+    font-weight: 600;
+
+}
+
+.inputtyprnumber {
+    display: flex;
+}
+#physical,#defending,#dribbling,#passing,#pace,#shooting {
+    width: 8.5rem;
+    
+}
+@media (max-width : 720px) {
+    body{
+        padding: 0px;
+        box-sizing: border-box;
+        height: 120vh;
+    }
+    .tiran {
+        margin: 0;
+        order: 2;
+        width: 100%;
+    }
+    .prrantPRG {
+        display: flex;
+        flex-wrap:wrap ;
+        gap: 2rem;
+        justify-content: space-between;
+         
+    }
+    .form {
+        order: 1;
+        width: 100%;
+    }
+    .tiran .jeurGK {
+        position: relative;
+        bottom: 5rem;
+        left: 15rem;
+    }
+    .formContener {
+        width: 100%;
+    }
+    .formContener input {
+        width: 90%;
+     
+    }
+    .inputtyprnumber div {
+        width: 100%;
+    }
+    .choix-jouer{
+        width: 100%;
+        display: flex;
+    }
+    .message-choix {
+        margin-top: 10px;
+    }
+         .formContener select {
+        width: 90%;
+    }
+    .formContener label {
+        display: block;
+    }
+}
+/* tab */
+@media (min-width : 720px) and (max-width : 950px) {
+    body{
+        padding: 0px;
+        box-sizing: border-box;
+        height: 120vh;
+    }
+    .tiran {
+        margin: 0;
+        order: 2;
+        width: 100%;
+    }
+    .prrantPRG {
+        display: flex;
+        flex-wrap:wrap ;
+        gap: 2rem;
+        justify-content: space-between;
+         
+    }
+    .form {
+        order: 1;
+        width: 100%;
+    }
+    .tiran .jeurGK {
+        position: relative;
+        top: 3rem;
+        left: 19rem;
+    }
+    .formContener {
+        width: 100%;
+    }
+    .formContener input {
+        width: 90%;
+     
+    }
+    .inputtyprnumber div {
+        width: 100%;
+    }
+    .choix-jouer{
+        width: 100%;
+        display: flex;
+    }
+    .message-choix {
+        margin-top: 10px;
+    }
+    .formContener select {
+        width: 90%;
+    }
+    .formContener label {
+        display: block;
+    }
+}
+
+@media (min-width : 950px) and (max-width : 1331px) {
+    
+    .tiran .jeurGK {
+        position: relative;
+        bottom:6rem;
+        left: 15rem;
+    }
+    
+    .formContener label {
+        display: block;
+    }
+}
