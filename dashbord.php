@@ -78,6 +78,9 @@ if ($connexion->connect_error) {
                             <th scope="col" class="px-6 py-3 text-center">
                             name
                              </th>
+                             <th scope="col" class="px-6 py-3 text-center">
+                            natenaliti
+                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
                             position
                             </th>
@@ -111,14 +114,16 @@ if ($connexion->connect_error) {
                        <?php 
                             $sql = "
                             SELECT * FROM players
-                            JOIN statistickes on statistickes.playerID=players.playerID;
+                            JOIN statistickes on statistickes.playerID=players.playerID
+                            JOIN club on club.playerID=players.playerID
+                            JOIN nationality ON nationality.playerID=players.playerID
                             ";
                             $resultat = $connexion->query($sql);
-        
                                 while ($ligne = $resultat->fetch_assoc()) {
                                   echo "<tr class='odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700'>";
                                   echo "<td class='px-6 py-4 text-center'>" . $ligne['playerID'] . "</td>";
-                                  echo "<td class='px-6 py-4 text-center'>" . $ligne['NameCOM'] . "</td>";
+                                  echo "<td class='px-6 py-4 text-center flex mt-2'>" . "<img class='w-5 ' src='" . $ligne['photo'] . "' alt=''>" . $ligne['NameCOM'] ."<img class='w-5 ml-2' src='" . $ligne['clubphoto'] . "' alt=''>" ."</td>";
+                                  echo "<td class='px-6 py-4 text-center'>" . "<img class='w-8  ml-10 ' src='" . $ligne['photo_nationality'] . "' alt=''>"  . "</td>";
                                   echo "<td class='px-6 py-4 text-center'>" . $ligne['position'] . "</td>";
                                   echo "<td class='px-6 py-4 text-center'>" . $ligne['rating'] . "</td>";
                                   echo "<td class='px-6 py-4 text-center'>" . $ligne['pace'] . "</td>";

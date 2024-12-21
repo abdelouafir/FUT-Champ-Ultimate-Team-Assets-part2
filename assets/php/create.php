@@ -13,9 +13,12 @@ if (!$connexion) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    // $position = $_POST["position"];
     $position = mysqli_real_escape_string($connexion, $_POST["position"]);
     $name = mysqli_real_escape_string($connexion, $_POST["name"]);
+    $photo = mysqli_real_escape_string($connexion, $_POST["photo"]);
     $club = mysqli_real_escape_string($connexion, $_POST["club"]);
+    $falag = mysqli_real_escape_string($connexion, $_POST["falag"]);
     $riting = mysqli_real_escape_string($connexion, $_POST["reting"]);
     $pace = isset($_POST["pacing"]) ? mysqli_real_escape_string($connexion, $_POST["pacing"]) : '';
     $shotion = mysqli_real_escape_string($connexion, $_POST["shooting"]);
@@ -25,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $defending = mysqli_real_escape_string($connexion, $_POST["defending"]);
 
 
-    $sql = "INSERT INTO players(position, NameCOM, rating) 
-            VALUES ('$position', '$name', '$riting')";
+    $sql = "INSERT INTO players(position,photo, NameCOM, rating) 
+            VALUES ('$position','$photo', '$name', '$riting')";
 
     if (mysqli_query($connexion, $sql)) {
         echo "Le joueur a été ajouté avec succès<br>";
@@ -42,6 +45,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "Erreur lors de l'ajout des statistiques : " . mysqli_error($connexion) . "<br>";
     }
+
+    $sql2 = "INSERT INTO club(clubphoto) 
+            VALUES ('$club')";
+    if (mysqli_query($connexion, $sql2)) {
+        echo "Les statistiques ont été ajoutées avec succès<br>";
+    } else {
+        echo "Erreur lors de l'ajout des statistiques : " . mysqli_error($connexion) . "<br>";
+    }
+
+    $sql3 = "INSERT INTO nationality(photo_nationality) 
+            VALUES ('$falag')";
+    if (mysqli_query($connexion, $sql3)) {
+        echo "Les statistiques ont été ajoutées avec succès<br>";
+    } else {
+        echo "Erreur lors de l'ajout des statistiques : " . mysqli_error($connexion) . "<br>";
+    }
 }
 ?>
 
@@ -52,16 +71,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="http://localhost/FUT-Champ-Ultimate-Team-Assets-part2/style.css">
+    <link rel="stylesheet" href="../../style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+
     
 </head>
-<body class="h-full">
-       <form method="post" class="bg-cyan-300 h-full w-">
-            <div id="formContenerJoueur" class="formContener w-5/12 m-auto ">
+<body class="h-full ">
+       <form method="post" class="h-screen ">
+            <div id="formContenerJoueur" class="formContener formContener_2 m-auto bg-cyan-300 h-full w-1/3">
                         <div>
                             <label for="position">position</label>
-                            <select name="position" id="position" value="<?php echo $position?>">
+                            <select class="h-5" name="position" id="position" value="">
                                 <option value="ST">ST</option>
                                 <option value="CB">CB</option>
                                 <option value="LB">LB</option>
@@ -72,15 +92,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <option value="RB">RB</option>
                             </select>
                         </div>
-                        <div>
-                            <input type="hidden" class='playerId' id="playerId" name="id_heddin">
+                        <div class="">
                             <label for="NAme">entrez name de jeur</label>
-                            <input id="NAme" type="text" placeholder="vini jr" name="name" value="<?php echo $name?>">
+                            <input  class="bg-orange-300 w-full p-4" id="NAme" type="text" placeholder="vini jr" name="name" value="">
                         </div>
                         <div>
                             <label for="photo">photo</label>
                             <div class="inputPhoto">
-                                <input id="photo" type="url" placeholder="https://..." name="photo" value="<?php echo $name?>">
+                                <input id="photo" type="text" class="w-full" placeholder="https://..." name="photo" value="">
                             </div>
                         
                         </div>
@@ -88,51 +107,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div>
                             <label for="flag">flag</label>
                             <div class="flagInput">
-                                <input id="flag" type="url" placeholder="https://..." name="falag" value="<?php echo $name?>">
+                                <input id="flag" type="url" placeholder="https://..." name="falag" value="" class="w-full">
                             </div>
                         </div>
                         <div>
                             <label for="club">club</label>
-                            <input id="club" type="text" placeholder="rial madrid" name="club" value="<?php echo $name?>">
+                            <input id="club" type="text" placeholder="rial madrid" name="club" value="">
                         </div>
                         <div >
                             <label for="logo">logo</label>
                             <div class="logoinput">
-                                <input id="logo" type="url" placeholder="https://..." name="logo" value="<?php echo $name?>">
+                                <input id="logo" type="url" placeholder="https://..." name="logo" value="">
                             </div>
                         </div>
                         <div>
                             <label for="rating">rating</label>
-                            <input id="rating" type="number" placeholder="number (99 - 10)" name="reting" value="<?php echo $name?>">
+                            <input id="rating" type="number" placeholder="number (99 - 10)" name="reting" value="">
                         </div>
                         <div  class="inputtyprnumber">
                             <div>
                                 <label for="pace">pace</label>
-                                <input id="pace" type="number" placeholder="number (99 - 10)" name="pacing" value="<?php echo isset($pace) ? $pace : ''; ?>">
+                                <input id="pace" type="number" placeholder="number (99 - 10)" name="pacing" value="">
                                 </div>
                             <div>
                                 <label for="shooting">shooting</label>
-                                <input id="shooting" type="number" placeholder="number (99 - 10)" name="shooting"  value="<?php echo $name?>">
+                                <input id="shooting" type="number" placeholder="number (99 - 10)" name="shooting"  value="">
                             </div>
                         </div>
                         <div class="inputtyprnumber">
                             <div>
                                 <label for="passing">passing</label>
-                                <input id="passing" type="number" placeholder="number (99 - 10)" name="passing" value="<?php echo $name?>">
+                                <input id="passing" type="number" placeholder="number (99 - 10)" name="passing" value="">
                             </div>
                             <div>
                                 <label for="dribbling">dribbling</label>
-                                <input id="dribbling" type="number" name="dribbling" value="<?php echo $name?>">
+                                <input id="dribbling" type="number" name="dribbling" value="">
                             </div>
                         </div>
                         <div class="inputtyprnumber">
                             <div>
                                 <label for="defending">defending</label>
-                                <input id="defending" type="number" placeholder="number (99 - 10)" name="defending" value="<?php echo $name?>">
+                                <input id="defending" type="number" placeholder="number (99 - 10)" name="defending" value="">
                             </div>
                             <div>
                                 <label for="physical">physical</label>
-                                <input id="physical" type="number" placeholder="number (99 - 10)" name="physical" value="<?php echo $name?>">
+                                <input id="physical" type="number" placeholder="number (99 - 10)" name="physical" value="">
                             </div>
                         </div>
                     
